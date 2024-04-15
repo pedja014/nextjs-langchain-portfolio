@@ -102,7 +102,7 @@ export default function AIChatBox({ onClose, open }: AIChatBoxProps) {
           />
           <button
             className="flex w-10 flex-none items-center justify-center disabled:opacity-50"
-            disabled={isLoading || input.length === 0}
+            disabled={input.length === 0}
             type="submit"
             title="Submit message"
           >
