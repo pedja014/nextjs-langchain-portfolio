@@ -1,8 +1,11 @@
 import { ChatOpenAI } from "@langchain/openai";
 import { LangChainStream, OpenAIStream, StreamingTextResponse } from "ai";
 import { ChatCompletionMessageParam } from "ai/prompts";
-import { ChatPromptTemplate } from "@langchain/core/prompts";
+import { ChatPromptTemplate, PromptTemplate } from "@langchain/core/prompts";
 import OpenAI from "openai";
+import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
+import { getVectorStore } from "@/lib/astradb";
+import { createRetrievalChain } from "langchain/chains/retrieval";
 
 export async function POST(req: Request) {
   try {
@@ -17,16 +20,38 @@ export async function POST(req: Request) {
       modelName: "gpt-3.5-turbo",
       streaming: true,
       callbacks: [handlers],
+      verbose: true,
     });
 
     const prompt = ChatPromptTemplate.fromMessages([
-      ["system", "You are a bot Harry"],
+      [
+        "system",
+        "You are a chtbot for a personal portfolio website. You impersonate the website's owner. " +
+          "Answer the user's questions based on the below context. " +
+          "Whenever it makes sense, provide links to pages that contain more informations about topics from the given context. " +
+          "Format your messages in markdown format.\n\n" +
+          "Context:\n{context}",
+      ],
       ["user", "{input}"],
     ]);
 
-    const chain = prompt.pipe(chatModel);
+    const combineDocsChain = await createStuffDocumentsChain({
+      llm: chatModel,
+      prompt,
+      documentPrompt: PromptTemplate.fromTemplate(
+        "Page URL: {url}\n\nPage content:\n{page_content}",
+      ),
+      documentSeparator: "\n----------\n",
+    });
 
-    chain.invoke({
+    const retriever = (await getVectorStore()).asRetriever();
+
+    const retrievalChain = await createRetrievalChain({
+      combineDocsChain,
+      retriever,
+    });
+
+    retrievalChain.invoke({
       input: currentMessageContent,
     });
 
