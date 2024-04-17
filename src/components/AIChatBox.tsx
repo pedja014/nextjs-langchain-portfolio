@@ -46,7 +46,7 @@ export default function AIChatBox({ onClose, open }: AIChatBoxProps) {
       )}
     >
       <button onClick={onClose} className="mb-1 ms-auto block">
-        <XCircle size={30} className="rounded-full bg-background" />
+        <XCircle size={30} className="rounded-full text-ring" />
       </button>
       <div className="flex h-[600px] flex-col rounded border bg-background shadow-xl">
         <div className="mt-3 h-full overflow-y-auto px-3" ref={scrollRef}>
@@ -91,13 +91,13 @@ export default function AIChatBox({ onClose, open }: AIChatBoxProps) {
             title="Clear chat"
             onClick={() => setMessages([])}
           >
-            <Trash size={24} />
+            <Trash size={24} className="text-ring"/>
           </button>
           <input
             value={input}
             onChange={handleInputChange}
-            placeholder="Say something..."
-            className="grow border-collapse rounded bg-background px-3 py-2"
+            placeholder="Ask away..."
+            className="grow border-collapse rounded bg-background px-3 py-2 border border-ring focus:border-red-500  focus:ring-2 focus:ring-ring outline-none"
             ref={inputRef}
           />
           <button
@@ -106,7 +106,7 @@ export default function AIChatBox({ onClose, open }: AIChatBoxProps) {
             type="submit"
             title="Submit message"
           >
-            <SendHorizonal size={24} />
+            <SendHorizonal size={24} className="text-ring"/>
           </button>
         </form>
       </div>

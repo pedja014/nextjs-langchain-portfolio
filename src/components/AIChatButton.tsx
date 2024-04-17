@@ -10,7 +10,7 @@ export default function AIChatButton() {
   return (
     <>
       <button onClick={() => setChatBoxOpen(true)}>
-        <Bot size={24} />
+        <Bot size={24} className="hover:animate-shake text-white" />
       </button>
       <AIChatBox open={chatBoxOpen} onClose={() => setChatBoxOpen(false)} />
     </>

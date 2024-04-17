@@ -14,7 +14,7 @@ export default function ThemeToggle() {
       />
       <Moon
         size={24}
-        className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+        className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-white"
       />
     </button>
   );
