@@ -1,111 +1,158 @@
 import { H1 } from "@/components/ui/H1";
 import { H2 } from "@/components/ui/H2";
 import { Metadata } from "next";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import meetings from "../../assets/meetings.png";
 import messenger from "../../assets/messenger.png";
 import photobooth from "../../assets/photobooth.png";
 import codepen from "../../assets/Codepen.png";
+import {
+  Computer,
+  FileJson,
+  HeartHandshake,
+  PersonStanding,
+  Settings,
+  TrendingUp,
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Me",
-  description: "Learn more about John Doe and his work.",
+  description: "Learn more about me and my work.",
 };
 
 export default function Page() {
   return (
-    <section className="space-y-6">
+    <section className="space-y-6 [&>*_p]:leading-7">
       <H1>About Me</H1>
       <section className="space-y-3">
         <H2>Who am I?</H2>
-        <p>
-          Hello! I&apos;m Predrag, a frontend developer passionate about
-          crafting optimized and practical solutions. My journey began at the
-          Faculty of Organizational Sciences in Belgrade in 2009, where I delved
-          into the world of programming, initially focusing on backend
-          technologies like Java and C#. Over time, my artistic inclination drew
-          me towards frontend development, leading to a deep dive into
-          JavaScript, HTML, and CSS and applying all the popular frameworks and
-          libraries on top of them to produce visual and practical solutions.
-        </p>
-        <p>
-          One of the most rewarding projects I&apos;ve worked on involved
-          developing a React and React Native solution to address parking issues
-          in Switzerland. Users can confirm usage of private parking spaces for
-          their guests and report unauthorized parking.
-        </p>
+        <div className="flex flex-row items-center justify-between">
+          <div className="hidden rounded-full bg-ring p-5 md:block">
+            <PersonStanding size={125} className="text-background" />
+          </div>
+          <div className="block p-5">
+            <p>
+              Hello! I&apos;m Predrag, a frontend developer passionate about
+              crafting optimized and practical solutions. My journey began at
+              the Faculty of Organizational Sciences in Belgrade in 2009, where
+              I delved into the world of programming, initially focusing on
+              backend technologies like Java and C#. Over time, my artistic
+              inclination drew me towards frontend development, leading to a
+              deep dive into JavaScript, HTML, and CSS and applying all the
+              popular frameworks and libraries on top of them to produce visual
+              and practical solutions.
+            </p>
+          </div>
+        </div>
       </section>
       <hr className="border-muted" />
       <section className="space-y-3">
         <H2>Skills</H2>
-        <p>
-          I specialize in <strong>React</strong> for frontend development and
-          have experience with state management using <strong>Redux</strong>.
-          Testing is an integral part of my workflow, utilizing libraries like{" "}
-          <strong>Jest</strong> and <strong>Cypress</strong> for component and
-          end-to-end testing.
-        </p>
-        <p>
-          My toolkit also includes <strong>Next.js</strong> for server-side
-          rendering, <strong>tailwindcss</strong>, <strong>bootstrap</strong>{" "}
-          and <strong>S(CSS)</strong> for responsive and efficient styling.
-        </p>
+        <div className="flex flex-row items-center justify-between">
+          <div className="block p-5">
+            <p>
+              I specialize in <strong>React</strong> for frontend development
+              and have experience with state management using{" "}
+              <strong>Redux</strong>. Testing is an integral part of my
+              workflow, utilizing libraries like <strong>Jest</strong> and{" "}
+              <strong>Cypress</strong> for component and end-to-end testing.
+            </p>
+            <p>
+              My toolkit also includes <strong>Next.js</strong> for server-side
+              rendering, <strong>MERN stack</strong> for full stack development <strong>tailwindcss</strong>,{" "}
+              <strong>bootstrap</strong> and <strong>S(CSS)</strong> for
+              responsive and efficient styling.
+            </p>
+          </div>
+          <div className="hidden rounded-full bg-ring p-5 md:block">
+            <Settings size={125} className="text-background" />
+          </div>
+        </div>
       </section>
       <hr className="border-muted" />
       <section className="space-y-3">
         <H2>Coding Practices</H2>
-        <p>
-          My approach to writing clean, maintainable code involves continuous
-          learning and refinement. Through thorough code organization,
-          meaningful variable naming, componentization, and ensuring type
-          safety, I strive to create code that is not just functional, but also
-          easy to understand and maintain.
-        </p>
-        <p>
-          I am well-versed in frontend testing frameworks, utilizing Jest and
-          react-testing-library for comprehensive component testing.
-          Additionally, Cypress has been a go-to choice for end-to-end testing,
-          ensuring a high-quality codebase with adequate test coverage.
-        </p>
+        <div className="flex flex-row items-center justify-between">
+          <div className="hidden rounded-full bg-ring p-5 md:block">
+            <Computer size={125} className="text-background" />
+          </div>
+          <div className="block p-5">
+            <p>
+              My approach to writing clean, maintainable code involves
+              continuous learning and refinement. Through thorough code
+              organization, meaningful variable naming, componentization, and
+              ensuring type safety, I strive to create code that is not just
+              functional, but also easy to understand and maintain.
+            </p>
+            <p>
+              I am well-versed in frontend testing frameworks, utilizing Jest
+              and react-testing-library for comprehensive component testing.
+              Additionally, Cypress has been a go-to choice for end-to-end
+              testing, ensuring a high-quality codebase with adequate test
+              coverage.
+            </p>
+          </div>
+        </div>
       </section>
       <hr className="border-muted" />
       <section className="space-y-3">
         <H2>Motivations for Frontend Development</H2>
-        <p>
-          My journey into frontend development was fueled by a desire to combine
-          my artistic flair with technical skills. The dynamic nature of
-          JavaScript, along with the myriad of frontend frameworks, offered an
-          exciting path to create innovative and visually appealing solutions.
-        </p>
+        <div className="flex flex-row items-center justify-between">
+          <div className="block p-5">
+            <p>
+              My journey into frontend development was fueled by a desire to
+              combine my artistic flair with technical skills. The dynamic
+              nature of JavaScript, along with the myriad of frontend
+              frameworks, offered an exciting path to create innovative and
+              visually appealing solutions.
+            </p>
+          </div>
+          <div className="hidden rounded-full bg-ring p-5 md:block">
+            <FileJson size={125} className="text-background" />
+          </div>
+        </div>
       </section>
       <hr className="border-muted" />
       <section className="space-y-3">
         <H2>Staying Updated with Frontend Trends</H2>
-        <p>
-          To stay abreast of the latest frontend trends and best practices, I
-          actively engage with the developer community through social media,
-          YouTube, and other platforms. Learning from others, engaging in
-          discussions, and attending webinars are integral parts of my growth as
-          a frontend developer.
-        </p>
+        <div className="flex flex-row items-center justify-between">
+          <div className="hidden rounded-full bg-ring p-5 md:block">
+            <TrendingUp size={125} className="text-background" />
+          </div>
+          <div className="block p-5">
+            <p>
+              To stay abreast of the latest frontend trends and best practices,
+              I actively engage with the developer community through social
+              media, YouTube, and other platforms. Learning from others,
+              engaging in discussions, and attending webinars are integral parts
+              of my growth as a frontend developer.
+            </p>
+          </div>
+        </div>
       </section>
       <hr className="border-muted" />
       <section className="space-y-3">
         <H2>Collaborating on Frontend Projects</H2>
-        <p>
-          Working in agile environments has honed my ability to collaborate
-          closely with designers, backend developers, and other team members.
-          Collaboration and transparency are key tenets, ensuring a smooth flow
-          of information and delivering solutions that meet everyone&apos;s
-          requirements.
-        </p>
+        <div className="flex flex-row items-center justify-between">
+          <div className="block p-5">
+            <p>
+              Working in agile environments has honed my ability to collaborate
+              closely with designers, backend developers, and other team
+              members. Collaboration and transparency are key tenets, ensuring a
+              smooth flow of information and delivering solutions that meet
+              everyone&apos;s requirements.
+            </p>
+          </div>
+          <div className="hidden rounded-full bg-ring p-5 md:block">
+            <HeartHandshake size={125} className="text-background" />
+          </div>
+        </div>
       </section>
       <hr className="border-muted" />
       <section className="space-y-3">
         <H2>Projects and code examples</H2>
         <ProjectCards />
       </section>
-
     </section>
   );
 }
