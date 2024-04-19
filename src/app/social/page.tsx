@@ -5,8 +5,8 @@ import ContactForm from "./ContactForm";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Social Media",
-  description: "Connect with John Doe on various platforms.",
+  title: "Socials",
+  description: "Connect with me on various platforms.",
 };
 
 export default function Page() {
